@@ -5,7 +5,12 @@ from folium.plugins import Draw
 from streamlit_folium import st_folium
 from datetime import date
 
-ee.Initialize(project='mini1-478517')
+try:
+    ee.Initialize()
+except:
+    ee.Authenticate()
+    ee.Initialize()
+
 
 st.set_page_config(
     page_title="AgroOrbit – Crop Monitoring",
